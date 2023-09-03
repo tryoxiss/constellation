@@ -16,12 +16,14 @@ var Splash =
     }
 }
 
+var count = 0;
+
 var FileExplorer =
 {
     view: function()
     {
         return m("ul", { class: "file-explorer" }, [
-            m("li", "file :3")
+            m("li", { onclick: function() { count++ } }, "file " + count)
         ])
     }
 }
@@ -30,10 +32,12 @@ var MainView =
 {
     view: function()
     {
-        return m("", [
-            m("h1", "Hello"),
+        return m("app", [
             m(FileExplorer),
-            m("div", { class: "content-area markdown-area yes-do-render", contenteditable: true })
+            m("main", [
+                m("h1", "Hello"),
+                m("div", { class: "content-area markdown-area yes-do-render", contenteditable: true })
+            ])
         ])
     }
 }
@@ -42,11 +46,13 @@ var GraphView =
 {
     view: function()
     {
-        return m("div", [
-            m("h1", "Not implemented yet"),
+        return m("app", [
             m(FileExplorer),
-            m("p", "Sorry :/"),
-            m("a", { href: "#/edit" }, "go back")
+            m("main", [
+                m("h1", "Not implemented yet"),
+                m("p", "Sorry :/"),
+                m("a", { href: "#/edit" }, "go back")
+            ])
         ])
     }
 }

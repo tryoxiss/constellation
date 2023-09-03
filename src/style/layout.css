@@ -1,0 +1,7 @@
+app
+{
+    display: grid;
+
+    /* !! NOT RESPONSIVE !! */
+    grid-template-columns: 15em clamp(20vw, 80ch, 80vw);
+}
